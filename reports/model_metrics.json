@@ -1,0 +1,209 @@
+{
+  "n_samples": 57,
+  "n_pod": 33,
+  "pod_rate": 0.579,
+  "filter_stats": {
+    "raw": 65,
+    "after_dedup": 63,
+    "after_age": 57,
+    "final": 57
+  },
+  "filtered_csv": "PRODETI_RISK_2-12_filtered.csv",
+  "n_features": 9,
+  "features": [
+    "age_years",
+    "sex_clean",
+    "mypas_pct",
+    "induction_behavior",
+    "duration_min",
+    "surgery_type_clean_code",
+    "planned_duration_cat",
+    "asa_class",
+    "opioid_used"
+  ],
+  "cv_metrics": [
+    {
+      "auc": 0.771,
+      "accuracy": 0.649,
+      "sensitivity": 0.667,
+      "specificity": 0.625,
+      "f1": 0.688,
+      "confusion_matrix": [
+        [
+          15,
+          9
+        ],
+        [
+          11,
+          22
+        ]
+      ],
+      "auc_ci_low": 0.638,
+      "auc_ci_high": 0.887,
+      "model": "Логистическая регрессия",
+      "split": "cv_5fold"
+    },
+    {
+      "auc": 0.713,
+      "accuracy": 0.667,
+      "sensitivity": 0.667,
+      "specificity": 0.667,
+      "f1": 0.698,
+      "confusion_matrix": [
+        [
+          16,
+          8
+        ],
+        [
+          11,
+          22
+        ]
+      ],
+      "auc_ci_low": 0.571,
+      "auc_ci_high": 0.848,
+      "model": "Random Forest",
+      "split": "cv_5fold"
+    },
+    {
+      "auc": 0.7,
+      "accuracy": 0.596,
+      "sensitivity": 0.576,
+      "specificity": 0.625,
+      "f1": 0.623,
+      "confusion_matrix": [
+        [
+          15,
+          9
+        ],
+        [
+          14,
+          19
+        ]
+      ],
+      "auc_ci_low": 0.545,
+      "auc_ci_high": 0.836,
+      "model": "XGBoost",
+      "split": "cv_5fold"
+    }
+  ],
+  "holdout_metrics": [
+    {
+      "auc": 0.914,
+      "accuracy": 0.75,
+      "sensitivity": 0.857,
+      "specificity": 0.6,
+      "f1": 0.8,
+      "confusion_matrix": [
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "auc_ci_low": 0.687,
+      "auc_ci_high": 1.0,
+      "model": "Логистическая регрессия",
+      "split": "holdout_20pct"
+    },
+    {
+      "auc": 0.8,
+      "accuracy": 0.833,
+      "sensitivity": 0.857,
+      "specificity": 0.8,
+      "f1": 0.857,
+      "confusion_matrix": [
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "auc_ci_low": 0.457,
+      "auc_ci_high": 1.0,
+      "model": "Random Forest",
+      "split": "holdout_20pct"
+    },
+    {
+      "auc": 0.829,
+      "accuracy": 0.917,
+      "sensitivity": 1.0,
+      "specificity": 0.8,
+      "f1": 0.933,
+      "confusion_matrix": [
+        [
+          4,
+          1
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "auc_ci_low": 0.429,
+      "auc_ci_high": 1.0,
+      "model": "XGBoost",
+      "split": "holdout_20pct"
+    }
+  ],
+  "best_cv_model": "Логистическая регрессия",
+  "best_cv_auc": 0.771,
+  "feature_importance": [
+    {
+      "feature": "Длит. анестезии, мин",
+      "importance": 1.0578,
+      "share_pct": 23.8
+    },
+    {
+      "feature": "Поведение при индукции",
+      "importance": 0.9952,
+      "share_pct": 22.4
+    },
+    {
+      "feature": "План. длительность",
+      "importance": 0.523,
+      "share_pct": 11.8
+    },
+    {
+      "feature": "Тип операции",
+      "importance": 0.4284,
+      "share_pct": 9.6
+    },
+    {
+      "feature": "Возраст, лет",
+      "importance": 0.3829,
+      "share_pct": 8.6
+    },
+    {
+      "feature": "ASA",
+      "importance": 0.3392,
+      "share_pct": 7.6
+    },
+    {
+      "feature": "Пол",
+      "importance": 0.3298,
+      "share_pct": 7.4
+    },
+    {
+      "feature": "m-YPAS, %",
+      "importance": 0.3133,
+      "share_pct": 7.0
+    },
+    {
+      "feature": "Опиоиды",
+      "importance": 0.0744,
+      "share_pct": 1.7
+    }
+  ],
+  "xgboost_available": true,
+  "figures": {
+    "roc_cv": "reports/roc_cv.png",
+    "roc_holdout": "reports/roc_holdout.png",
+    "feature_importance": "reports/feature_importance_best.png"
+  }
+}
